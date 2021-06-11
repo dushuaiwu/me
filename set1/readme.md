@@ -1,1 +1,3 @@
-TODO: Reflect on what you learned this week and what is still unclear.
+test lab book
+get stuck in mac system, using windows instead
+
