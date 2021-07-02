@@ -7,7 +7,10 @@ def is_odd(a_number):
 
     Look into modulo division using the '%' operator as one way of doing this.
     """
-    return None
+    if (a_number % 2) == 0:
+        return False
+    else:
+        return True
 
 
 def fix_it(moves=True, should_move=True):
@@ -22,9 +25,18 @@ def fix_it(moves=True, should_move=True):
     "Duct Tape"
     "No Problem"
 
-    Most people write this function with 4 return statements. 
+    Most people write this function with 4 return statements.
     As an extra challenge, see if you can get that down to three.
     """
+
+    if moves and should_move:
+        return "No Problem"
+    elif moves and not should_move:
+        return "Duct Tape"
+    elif not moves and not should_move:
+        return "No Problem"
+    elif not moves and should_move:
+        return "WD-40"
     return None
 
 
@@ -35,7 +47,10 @@ def loops_1a():
     return a list of 10 items, each one a string with exacly one star in it.
     E.g.: ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*']
     """
-    return None
+    list2 = []
+    for i in range(10):
+        list2.append("*")
+    return list2
 
 
 def loops_1c(number_of_items=5, symbol="#"):
@@ -45,7 +60,10 @@ def loops_1c(number_of_items=5, symbol="#"):
     string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
-    return None
+    list1c = []
+    for i in range(number_of_items):
+        list1c.append(symbol)
+    return list1c
 
 
 def loops_2():
@@ -66,7 +84,13 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
-    return None
+    list2square = []
+    for i in range(10):
+        list2 = []
+        for j in range(10):
+            list2.append("*")
+        list2square.append(list2)
+    return list2square
 
 
 def loops_3():
@@ -90,7 +114,14 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    return None
+    nsquare = []
+    for i in range(10):
+        nrow = []
+        for j in range(10):
+            nrow.append(str(i))
+        nsquare.append(nrow)
+
+    return nsquare
 
 
 def loops_4():
@@ -110,7 +141,14 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    return None
+    nsquare = []
+    for x in range(10):
+        nrow = []
+        for y in range(10):
+            nrow.append(str(y))
+        nsquare.append(nrow)
+
+    return nsquare
 
 
 def loops_5():
@@ -137,7 +175,14 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-    return None
+    nsquare = []
+    for i in range(10):
+        nrow = []
+        for j in range(5):
+            nrow.append("(i{}, j{})".format(i, j))
+        nsquare.append(nrow)
+
+    return nsquare
 
 
 def loops_6():
@@ -160,7 +205,13 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    return None
+    wedge = []
+    for i in range(10):
+        row = []
+        for j in range(i + 1):
+            row.append(str(j))
+        wedge.append(row)
+    return wedge
 
 
 def loops_7():
@@ -184,7 +235,17 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    return None
+
+    pyramid = []
+    for i in range(5):
+        list = []
+        for x in range(9):
+            if x < (4 - i) or x > (4 + i):
+                list.append(" ")
+            else:
+                list.append("*")
+        pyramid.append(list)
+    return pyramid
 
 
 def little_printer(some_kind_of_list, exercise_name):
