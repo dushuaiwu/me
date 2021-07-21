@@ -33,8 +33,10 @@ def get_some_details():
          dictionary, you'll need integer indeces for lists, and named keys for
          dictionaries.
     """
-    json_data = open("./lazyduck.json").read()
-    data = json_data.loads(json_data)
+    with open(LOCAL + "/lazyduck.json", "r") as info:
+        json_data = info.read()
+
+    data = json.loads(json_data)
     name = data["results"][0]["name"]["last"]
     password = data["results"][0]["login"]["password"]
     postcode = data["results"][0]["location"]["postcode"]
@@ -152,7 +154,20 @@ def diarist():
          the test will have nothing to look at.
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
-    pass
+    path = LOCAL + "/Trispokedovetiles(laser).gcode"
+    mode = "r"
+    laser = open(path, mode)
+    num_counts = 0
+    for line in laser:
+        if "M10 P1" in line:
+            num_counts = num_counts + 1
+    print(num_counts)
+
+    mode = "w"
+    writeto = LOCAL + "/lasers.pew"
+    laser = open(writeto, mode)
+    laser.write(str(num_counts))
+    laser.close()
 
 
 if __name__ == "__main__":
