@@ -33,10 +33,14 @@ def get_some_details():
          dictionary, you'll need integer indeces for lists, and named keys for
          dictionaries.
     """
-    json_data = open(LOCAL + "/lazyduck.json").read()
-
-    data = json.loads(json_data)
-    return {"lastName": None, "password": None, "postcodePlusID": None}
+    json_data = open("./lazyduck.json").read()
+    data = json_data.loads(json_data)
+    name = data["results"][0]["name"]["last"]
+    password = data["results"][0]["login"]["password"]
+    postcode = data["results"][0]["location"]["postcode"]
+    id = int(data["results"][0]["id"]["value"])
+    postcode_plus_id = int(postcode) + int(id)
+    return {"lastName": name, "password": password, "postcodePlusID": postcode_plus_id}
 
 
 def wordy_pyramid():
@@ -73,17 +77,37 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &wordlength=
     """
-    pass
+    word_pyramid = []
+    for i in range(3, 20, 2):
+        url = (
+            "https://us-central1-waldenpondpress.cloudfunctions.net/"
+            "give_me_a_word?"
+            f"wordlength={i}"
+        )
+        r = requests.get(url)
+        word = r.text
+        word_pyramid.append(word)
+
+    for i in range(20, 3, -2):
+        url = (
+            "https://us-central1-waldenpondpress.cloudfunctions.net/"
+            "give_me_a_word?"
+            f"wordlength={i}"
+        )
+        r = requests.get(url)
+        word = r.text
+        word_pyramid.append(word)
+    return word_pyramid
 
 
 def pokedex(low=1, high=5):
-    """ Return the name, height and weight of the tallest pokemon in the range low to high.
+    """Return the name, height and weight of the tallest pokemon in the range low to high.
 
     Low and high are the range of pokemon ids to search between.
     Using the Pokemon API: https://pokeapi.co get some JSON using the request library
     (a working example is filled in below).
     Parse the json and extract the values needed.
-    
+
     TIP: reading json can someimes be a bit confusing. Use a tool like
          http://www.jsoneditoronline.org/ to help you see what's going on.
     TIP: these long json accessors base["thing"]["otherThing"] and so on, can
@@ -92,11 +116,26 @@ def pokedex(low=1, high=5):
     """
     template = "https://pokeapi.co/api/v2/pokemon/{id}"
 
-    url = template.format(id=5)
-    r = requests.get(url)
-    if r.status_code is 200:
-        the_json = json.loads(r.text)
-    return {"name": None, "weight": None, "height": None}
+    got_it_all = []
+    for i in range(low, high):
+        url = template.format(id=i)
+        r = requests.get(url)
+        if r.status_code is 200:
+            the_json = json.loads(r.text)
+            got_it_all.append(the_json)
+    tallest_pokemon_hight = 0
+    tallest_pokemon = " ? "
+    for i in got_it_all:
+        hight = i["height"]
+        if hight > tallest_pokemon_hight:
+            tallest_pokemon_hight = hight
+            tallest_pokemon = i
+
+    return {
+        "name": tallest_pokemon["name"],
+        "weight": tallest_pokemon["weight"],
+        "height": tallest_pokemon["height"],
+    }
 
 
 def diarist():
