@@ -16,7 +16,7 @@ can not solve this two problem
 
 How to use with open:
 https://blog.csdn.net/chenmozhe22/article/details/81434549
-'r' reading only
+'r' reading
 'w' writing
 methon1 three steps
 1.open f = open( '/Users/michael/test.txt', 'r' )
@@ -26,12 +26,12 @@ methon1 three steps
 
 methon2
 
-1.         with open( '/path/to/file', 'r' ) as f:
+1.          with open( '/path/to/file', 'r' ) as f:
 
     print( f.read() )
 
-2.          for line in f.readlines():
+2.           for line in f.readlines():
     print( line.strip() )
-3.          f = open('/Users/michael/test.txt', 'w')
+3.           f = open('/Users/michael/test.txt', 'w')
     f.write('Hello, world!')
     f.close()
