@@ -2,8 +2,8 @@ name: DU SHUAI
 studentNumber: z5014168
 officialEmail: d.shuai@student.unsw.edu.au
 contactEmail: # don't write on this line
-  firstBit: DU.SHUAI # this avoids spam, the @ is implied
-  otherBit: wushuaidu@gmail.com
+  firstBit: wushuaidu # this avoids spam, the @ is implied
+  otherBit: gmail.com
 # accounts
 stackOverflowLink: https://stackoverflow.com/users/16192728/devshuai
 github: dushuaiwu
