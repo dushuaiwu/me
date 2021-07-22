@@ -1,4 +1,4 @@
-TODO: Reflect on what you learned this week and what is still unclear.
+python ../course/set2/tests.py
 
 # remember ":" & unindent does not match any outer indentation level
 
@@ -14,3 +14,6 @@ addtest(123, 321)
     #     print((x * i).rjust(pyramid_side - 1) + x + (x * i).ljust(pyramid_side - 1))
 
     # return x
+
+instruction for creat a pyramid:
+https://www.pythonheidong.com/blog/article/886606/f65d8481c79541184256/
