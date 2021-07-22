@@ -1,5 +1,3 @@
-TODO: Reflect on what you learned this week and what is still unclear.
-
 <!-- import requests
 
 header = {
@@ -26,12 +24,15 @@ methon1 three steps
 
 methon2
 
-1.          with open( '/path/to/file', 'r' ) as f:
+1.            with open( '/path/to/file', 'r' ) as f:
 
     print( f.read() )
 
-2.           for line in f.readlines():
+2.             for line in f.readlines():
     print( line.strip() )
-3.           f = open('/Users/michael/test.txt', 'w')
+3.             f = open('/Users/michael/test.txt', 'w')
     f.write('Hello, world!')
     f.close()
+
+ABOUT IO:
+https://www.runoob.com/python/python-files-io.html
