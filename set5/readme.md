@@ -1,7 +1,7 @@
 TODO: Reflect on what you learned this week and what is still unclear.
 
 about data project:
-topic: nft
+topic: non-fungible token art.
 
 https://www.chainnews.com/articles/160325047668.htm ()
 
