@@ -15,5 +15,5 @@ addtest(123, 321)
 
     # return x
 
-instruction for creat a pyramid:
+instruction for creating a pyramid:
 https://www.pythonheidong.com/blog/article/886606/f65d8481c79541184256/
